@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author raunak
+ * @author Deepika Reddy
  */
 public class UserAccountDirectory {
     
@@ -41,7 +41,16 @@ public class UserAccountDirectory {
         userAccountList.add(userAccount);
         return userAccount;
     }
+    public void deleteUserAccount(UserAccount user){
+        userAccountList.remove(user);
+    }
     
+    public void updateUserAccount(UserAccount user,String name,String username, String password){
+       
+//        user.setName(name);
+        user.setUsername(username);
+        user.setPassword(password);
+    }
     public boolean checkIfUsernameIsUnique(String username){
         for (UserAccount ua : userAccountList){
             if (ua.getUsername().equals(username))

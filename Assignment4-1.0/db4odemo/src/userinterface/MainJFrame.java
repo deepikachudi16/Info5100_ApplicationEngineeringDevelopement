@@ -42,7 +42,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
         jSplitPane1 = new javax.swing.JSplitPane();
         jPanel1 = new javax.swing.JPanel();
-        loginJButton = new javax.swing.JButton();
+        loginbutton = new javax.swing.JButton();
         userNameJTextField = new javax.swing.JTextField();
         passwordField = new javax.swing.JPasswordField();
         jLabel1 = new javax.swing.JLabel();
@@ -53,10 +53,10 @@ public class MainJFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        loginJButton.setText("Login");
-        loginJButton.addActionListener(new java.awt.event.ActionListener() {
+        loginbutton.setText("Login");
+        loginbutton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                loginJButtonActionPerformed(evt);
+                loginbuttonActionPerformed(evt);
             }
         });
 
@@ -88,7 +88,7 @@ public class MainJFrame extends javax.swing.JFrame {
                             .addComponent(logoutJButton, javax.swing.GroupLayout.DEFAULT_SIZE, 92, Short.MAX_VALUE)
                             .addGap(26, 26, 26)
                             .addComponent(loginJLabel)))
-                    .addComponent(loginJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(loginbutton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -103,12 +103,12 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(loginJButton)
+                .addComponent(loginbutton)
                 .addGap(34, 34, 34)
                 .addComponent(logoutJButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(loginJLabel)
-                .addContainerGap(187, Short.MAX_VALUE))
+                .addContainerGap(203, Short.MAX_VALUE))
         );
 
         jSplitPane1.setLeftComponent(jPanel1);
@@ -121,16 +121,34 @@ public class MainJFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void loginJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginJButtonActionPerformed
+    private void loginbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginbuttonActionPerformed
         // Get user name
-       
-    }//GEN-LAST:event_loginJButtonActionPerformed
+        UserAccount ua = system.getUserAccountDirectory().authenticateUser(userNameJTextField.getText(), passwordField.getText());
+        try{
+            if(ua == null){
+                JOptionPane.showMessageDialog(null," Invalid User Name or Password ");
+                 userNameJTextField.setText("");
+                 passwordField.setText("");
+                 throw new Exception();
+            }
+        } catch(Exception e){
+            return;
+        }
+        
+        CardLayout layout = (CardLayout) container.getLayout();
+        container.add(ua.getRole().createWorkArea(container, ua, system));
+        layout.next(container);
+        logoutJButton.setEnabled(true);
+        userNameJTextField.setEnabled(false);
+        passwordField.setEnabled(false);
+        loginbutton.setEnabled(false);
+    }//GEN-LAST:event_loginbuttonActionPerformed
 
     private void logoutJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutJButtonActionPerformed
         logoutJButton.setEnabled(false);
         userNameJTextField.setEnabled(true);
         passwordField.setEnabled(true);
-        loginJButton.setEnabled(true);
+        loginbutton.setEnabled(true);
 
         userNameJTextField.setText("");
         passwordField.setText("");
@@ -183,8 +201,8 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSplitPane jSplitPane1;
-    private javax.swing.JButton loginJButton;
     private javax.swing.JLabel loginJLabel;
+    private javax.swing.JButton loginbutton;
     private javax.swing.JButton logoutJButton;
     private javax.swing.JPasswordField passwordField;
     private javax.swing.JTextField userNameJTextField;
