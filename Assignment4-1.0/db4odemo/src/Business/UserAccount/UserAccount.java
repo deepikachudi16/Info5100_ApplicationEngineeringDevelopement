@@ -15,6 +15,7 @@ import Business.WorkQueue.WorkQueue;
 public class UserAccount {
     
     private String name;
+    
 
     public String getName() {
         return name;
@@ -28,6 +29,8 @@ public class UserAccount {
     private Employee employee;
     private Role role;
     private WorkQueue workQueue;
+    private String contact;
+    private String address;
 
     public UserAccount() {
         workQueue = new WorkQueue();
@@ -50,7 +53,16 @@ public class UserAccount {
     public void setPassword(String password) {
         this.password = password;
     }
+    
+    public String getContact() {
+        return contact;
+    }
+    
 
+    public void setContact(String contact) {
+        this.contact = contact;
+    }
+    
     public Role getRole() {
         return role;
     }
@@ -58,7 +70,7 @@ public class UserAccount {
     public void setEmployee(Employee employee) {
         this.employee = employee;
     }
-
+    
     public void setRole(Role role) {
         this.role = role;
     }
@@ -72,12 +84,21 @@ public class UserAccount {
     }
 
     
-    
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
     @Override
     public String toString() {
         return username;
     }
+
     
-    
+
+   
     
 }

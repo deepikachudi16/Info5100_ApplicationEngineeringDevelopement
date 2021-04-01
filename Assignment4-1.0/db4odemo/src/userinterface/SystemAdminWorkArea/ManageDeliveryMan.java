@@ -58,6 +58,10 @@ public class ManageDeliveryMan extends javax.swing.JPanel {
         jButton1 = new javax.swing.JButton();
         backJButton = new javax.swing.JButton();
         submitJButton = new javax.swing.JButton();
+        ContactField = new javax.swing.JTextField();
+        contact = new javax.swing.JLabel();
+        address = new javax.swing.JLabel();
+        addressfield = new javax.swing.JTextField();
 
         updateBtn.setForeground(new java.awt.Color(153, 153, 0));
         updateBtn.setText("Update");
@@ -150,17 +154,32 @@ public class ManageDeliveryMan extends javax.swing.JPanel {
             }
         });
 
+        contact.setText("Contact");
+
+        address.setText("Address");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(184, 184, 184)
-                .addComponent(submitJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(354, Short.MAX_VALUE))
+                .addGap(44, 44, 44)
+                .addComponent(contact)
+                .addGap(62, 62, 62)
+                .addComponent(ContactField, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(backJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(address)
+                        .addGap(43, 43, 43)
+                        .addComponent(addressfield, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(174, 174, 174)
+                        .addComponent(submitJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 261, Short.MAX_VALUE)
+                        .addComponent(backJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(28, 28, 28))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
@@ -197,10 +216,18 @@ public class ManageDeliveryMan extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(401, Short.MAX_VALUE)
-                .addComponent(submitJButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(backJButton)
+                .addContainerGap(332, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(address)
+                    .addComponent(addressfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(45, 45, 45)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ContactField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(contact))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(backJButton)
+                    .addComponent(submitJButton))
                 .addGap(24, 24, 24))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
@@ -395,7 +422,7 @@ private void populateNetworkTable() {
         Component[] componentArray = userProcessContainer.getComponents();
         Component component = componentArray[componentArray.length - 1];
         SystemAdminWorkAreaJPanel sysAdminwjp = (SystemAdminWorkAreaJPanel) component;
-        sysAdminwjp.populateTree();
+//        sysAdminwjp.populateTree();
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_backJButtonActionPerformed
@@ -466,20 +493,25 @@ private void populateNetworkTable() {
             JOptionPane.showMessageDialog(null,"  User Name already exists ");
         }else{
 
-            UserAccount ua1 =system.getUserAccountDirectory().createUserAccount(name,uname,password, null, new DeliverManRole());
+            UserAccount ua1 =system.getUserAccountDirectory().createUserAccount(name,uname,password,null, new DeliverManRole());
             DeliveryMan deliveryMan= system.getDeliveryManDirectory().createDeliveryMan(uname);
             populateNetworkTable();
             nameJTextField.setText("");
             uNameTextField.setText("");
             PasswordField.setText("");
+            ContactField.setText("");
         }
     }//GEN-LAST:event_submitJButtonActionPerformed
 
  
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ConfirmBtn;
+    private javax.swing.JTextField ContactField;
     private javax.swing.JPasswordField PasswordField;
+    private javax.swing.JLabel address;
+    private javax.swing.JTextField addressfield;
     private javax.swing.JButton backJButton;
+    private javax.swing.JLabel contact;
     private javax.swing.JButton deleteBtn;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel3;
