@@ -10,7 +10,7 @@ import Business.WorkQueue.WorkQueue;
 
 /**
  *
- * @author raunak
+ * @author Deepika Reddy
  */
 public class UserAccount {
     
@@ -67,6 +67,10 @@ public class UserAccount {
     @Override
     public String toString() {
         return username;
+    }
+
+    public String getName() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     

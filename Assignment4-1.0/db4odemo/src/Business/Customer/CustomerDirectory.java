@@ -10,5 +10,13 @@ package Business.Customer;
  * @author harold
  */
 public class CustomerDirectory {
+
+    public Customer createCustomer(String uname) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void deleteCustomer(String username) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

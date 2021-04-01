@@ -5,6 +5,7 @@
 package Business.UserAccount;
 
 import Business.Employee.Employee;
+import Business.Role.CustomerRole;
 import Business.Role.Role;
 import java.util.ArrayList;
 
@@ -57,5 +58,9 @@ public class UserAccountDirectory {
                 return false;
         }
         return true;
+    }
+
+    public UserAccount createUserAccount(String name, String uname, String password, Object object, CustomerRole customerRole) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
