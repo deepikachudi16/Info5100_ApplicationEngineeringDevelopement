@@ -6,7 +6,7 @@ import Business.UserAccount.UserAccount;
 
 /**
  *
- * @author rrheg
+ * @author Deepika Reddy
  */
 public class ConfigureASystem {
     

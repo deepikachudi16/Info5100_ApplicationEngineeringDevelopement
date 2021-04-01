@@ -7,7 +7,7 @@ package Business.Restaurant;
 
 /**
  *
- * @author harold
+ * @author Deepika Reddy
  */
 public class Restaurant {
     
