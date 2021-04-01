@@ -6,6 +6,7 @@
 package userinterface.RestaurantAdminRole;
 
 import Business.EcoSystem;
+import Business.Order.Order;
 import Business.UserAccount.UserAccount;
 import javax.swing.JPanel;
 

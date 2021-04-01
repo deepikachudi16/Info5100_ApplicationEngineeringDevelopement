@@ -15,7 +15,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author raunak
+ * @author Deepika Reddy
  */
 public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
 

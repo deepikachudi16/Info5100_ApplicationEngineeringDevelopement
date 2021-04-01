@@ -5,8 +5,12 @@
  */
 package userinterface.SystemAdminWorkArea;
 
+import Business.Customer.Customer;
 import Business.EcoSystem;
+import Business.Role.CustomerRole;
 import Business.UserAccount.UserAccount;
+import java.awt.CardLayout;
+import java.awt.Component;
 import static java.time.Clock.system;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
@@ -25,12 +29,11 @@ public class ManageCustomers extends javax.swing.JPanel {
      private JPanel userProcessContainer;
     private EcoSystem system;
     UserAccount user;
-    private final EcoSystem EcoSystem;
+ 
     
-    public ManageCustomers(JPanel ucp, EcoSystem ec) {
+    public ManageCustomers(JPanel userProcessContainer, EcoSystem system) {
         initComponents();
-        this.userProcessContainer = ucp;
-        this.EcoSystem= ec;
+        this.userProcessContainer = userProcessContainer;
         this.system = system;
          populateNetworkTable();
          ConfirmBtn.setEnabled(false);
@@ -55,6 +58,8 @@ public class ManageCustomers extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         nameJTextField = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
+        submitJButton = new javax.swing.JButton();
+        backJButton = new javax.swing.JButton();
 
         jLabel4.setForeground(new java.awt.Color(0, 0, 204));
         jLabel4.setText("Password");
@@ -123,11 +128,32 @@ public class ManageCustomers extends javax.swing.JPanel {
         jLabel3.setForeground(new java.awt.Color(0, 0, 204));
         jLabel3.setText("Name");
 
+        submitJButton.setForeground(new java.awt.Color(153, 0, 51));
+        submitJButton.setText("Submit");
+        submitJButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                submitJButtonActionPerformed(evt);
+            }
+        });
+
+        backJButton.setForeground(new java.awt.Color(153, 0, 51));
+        backJButton.setText("<< Back");
+        backJButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backJButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 630, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(backJButton)
+                .addGap(538, 538, 538)
+                .addComponent(submitJButton)
+                .addContainerGap())
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(110, 110, 110)
@@ -154,11 +180,18 @@ public class ManageCustomers extends javax.swing.JPanel {
                                     .addComponent(jLabel5)
                                     .addGap(28, 28, 28)
                                     .addComponent(uNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addContainerGap(111, Short.MAX_VALUE)))
+                    .addContainerGap(181, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 544, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(453, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(9, 9, 9)
+                        .addComponent(backJButton))
+                    .addComponent(submitJButton))
+                .addGap(59, 59, 59))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(139, 139, 139)
@@ -195,14 +228,14 @@ public class ManageCustomers extends javax.swing.JPanel {
         model.setRowCount(0);
         
        // for()
-        for (UserAccount user : system.getUserAccountDirectory().getUserAccountList()) {
+        for (UserAccount uuserr : system.getUserAccountDirectory().getUserAccountList()) {
            
-            if ("Business.Role.CustomerRole".equals(user.getRole().getClass().getName())) {
+            if ("Business.Role.CustomerRole".equals(uuserr.getRole().getClass().getName())) {
                 Object[] row = new Object[3];
                
-                row[0] = user.getName();
-                row[1] = user.getUsername();
-                row[2] = user.getPassword();
+                row[0] = uuserr.getName();
+                row[1] = uuserr.getUsername();
+                row[2] = uuserr.getPassword();
                 
                 model.addRow(row);
             }
@@ -340,10 +373,96 @@ public class ManageCustomers extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_ConfirmBtnActionPerformed
 
+    private void submitJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitJButtonActionPerformed
+
+        String name = nameJTextField.getText();
+        String uname=uNameTextField.getText();
+        String password=PasswordField.getText();
+
+        try {
+            if(name==null || name.isEmpty()){
+                throw new NullPointerException(" Name field is Empty");
+
+            }else if(name.length()<5 || Pattern.matches("^[A-Za-z]+$", name)==false){
+                throw new Exception("Please enter valid  Name");
+
+            }
+        } catch(NullPointerException e){
+            JOptionPane.showMessageDialog(null, " Name is Empty");
+
+            return;
+
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(null, "  Name is invalid");
+
+            return;
+        }
+
+        try {
+            if(uname==null || uname.isEmpty()){
+                throw new NullPointerException("User Name field is Empty");
+
+            }else if(uname.length()<5){
+                throw new Exception("Please enter valid User Name");
+
+            }
+        } catch(NullPointerException e){
+            JOptionPane.showMessageDialog(null, "User Name is Empty");
+
+            return;
+
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(null, " User Name is invalid");
+
+            return;
+        }
+
+        try {
+
+            if(password==null || password.isEmpty()){
+                throw new NullPointerException("Pwd field is Empty");
+            }else if(Pattern.matches("^(?=(.*[a-z]){1,})(?=(.*[\\d]){1,})(?=(.*[\\W]){1,})(?!.*\\s).{5,30}$", password)==false){
+                throw new Exception("Invalid Password");
+            }
+
+        }  catch(NullPointerException e){
+            JOptionPane.showMessageDialog(null, "Password is Empty");
+
+            return;
+        }catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Password is of invalid pattern");
+
+            return;
+        }
+
+        if (system.getUserAccountDirectory().checkIfUsernameIsUnique(uname)==false) {
+            JOptionPane.showMessageDialog(null,"  User Name already exists ");
+        }else{
+
+            UserAccount ua1 =system.getUserAccountDirectory().createUserAccount(name,uname,password, null, new CustomerRole());
+            Customer cust= system.getCustomerDirectory().createCustomer(uname);
+            populateNetworkTable();
+            nameJTextField.setText("");
+            uNameTextField.setText("");
+            PasswordField.setText("");
+        }
+    }//GEN-LAST:event_submitJButtonActionPerformed
+
+    private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
+        userProcessContainer.remove(this);
+        Component[] componentArray = userProcessContainer.getComponents();
+        Component component = componentArray[componentArray.length - 1];
+        SystemAdminWorkAreaJPanel sysAdminwjp = (SystemAdminWorkAreaJPanel) component;
+        sysAdminwjp.populateTree();
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_backJButtonActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ConfirmBtn;
     private javax.swing.JPasswordField PasswordField;
+    private javax.swing.JButton backJButton;
     private javax.swing.JButton deleteBtn;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -351,8 +470,9 @@ public class ManageCustomers extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField nameJTextField;
     private javax.swing.JTable networkJTable;
+    private javax.swing.JButton submitJButton;
     private javax.swing.JTextField uNameTextField;
     private javax.swing.JButton updateBtn;
     // End of variables declaration//GEN-END:variables
-private javax.swing.JButton submitJButton;
+
 }

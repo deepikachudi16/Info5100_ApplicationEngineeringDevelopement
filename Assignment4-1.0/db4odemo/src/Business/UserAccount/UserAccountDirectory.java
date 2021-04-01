@@ -4,9 +4,12 @@
  */
 package Business.UserAccount;
 
+import Business.EcoSystem;
 import Business.Employee.Employee;
-import Business.Role.CustomerRole;
+import Business.Restaurant.Restaurant;
+import Business.Restaurant.RestaurantDirectory;
 import Business.Role.Role;
+import Business.Role.SystemAdminRole;
 import java.util.ArrayList;
 
 /**
@@ -14,7 +17,7 @@ import java.util.ArrayList;
  * @author Deepika Reddy
  */
 public class UserAccountDirectory {
-    
+   //private RestaurantDirectory resDir;
     private ArrayList<UserAccount> userAccountList;
 
     public UserAccountDirectory() {
@@ -33,25 +36,28 @@ public class UserAccountDirectory {
         return null;
     }
     
-    public UserAccount createUserAccount(String username, String password, Employee employee, Role role){
+    public UserAccount createUserAccount(String name,String username, String password, Employee employee, Role role){
         UserAccount userAccount = new UserAccount();
+        userAccount.setName(name);
         userAccount.setUsername(username);
         userAccount.setPassword(password);
         userAccount.setEmployee(employee);
         userAccount.setRole(role);
-        userAccountList.add(userAccount);
+        userAccountList.add(userAccount);   
         return userAccount;
     }
+    
     public void deleteUserAccount(UserAccount user){
         userAccountList.remove(user);
     }
     
     public void updateUserAccount(UserAccount user,String name,String username, String password){
        
-//        user.setName(name);
+        user.setName(name);
         user.setUsername(username);
         user.setPassword(password);
     }
+    
     public boolean checkIfUsernameIsUnique(String username){
         for (UserAccount ua : userAccountList){
             if (ua.getUsername().equals(username))
@@ -60,7 +66,7 @@ public class UserAccountDirectory {
         return true;
     }
 
-    public UserAccount createUserAccount(String name, String uname, String password, Object object, CustomerRole customerRole) {
+    public UserAccount createUserAccount(String sysadmin, String sysadmin0, Employee employee, SystemAdminRole systemAdminRole) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

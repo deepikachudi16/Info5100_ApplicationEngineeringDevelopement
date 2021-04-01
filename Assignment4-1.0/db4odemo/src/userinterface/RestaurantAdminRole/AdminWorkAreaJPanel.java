@@ -34,15 +34,21 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
      */
 
     public AdminWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem business) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       initComponents();
+        this.account=account;
+        this.userProcessContainer = userProcessContainer;
+        this.system=business;
+        //this.account=account;
+      
+        valueLabel.setText(account.getName());
     }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        userJButton = new javax.swing.JButton();
-        manageEmployeeJButton = new javax.swing.JButton();
+        ManageRestaurant = new javax.swing.JButton();
+        ManageMenu = new javax.swing.JButton();
         manageOrders = new javax.swing.JButton();
         enterpriseLabel = new javax.swing.JLabel();
         valueLabel = new javax.swing.JLabel();
@@ -53,21 +59,21 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
         jLabel1.setText("My Work Area -Adminstrative Role");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, -1, -1));
 
-        userJButton.setText("Manage Restaurant Info");
-        userJButton.addActionListener(new java.awt.event.ActionListener() {
+        ManageRestaurant.setText("Manage Restaurant Info");
+        ManageRestaurant.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                userJButtonActionPerformed(evt);
+                ManageRestaurantActionPerformed(evt);
             }
         });
-        add(userJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 230, 180, -1));
+        add(ManageRestaurant, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 230, 180, -1));
 
-        manageEmployeeJButton.setText("Manage menu");
-        manageEmployeeJButton.addActionListener(new java.awt.event.ActionListener() {
+        ManageMenu.setText("Manage menu");
+        ManageMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                manageEmployeeJButtonActionPerformed(evt);
+                ManageMenuActionPerformed(evt);
             }
         });
-        add(manageEmployeeJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 180, 150, -1));
+        add(ManageMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 180, 150, -1));
 
         manageOrders.setText("Manage Orders");
         manageOrders.addActionListener(new java.awt.event.ActionListener() {
@@ -85,14 +91,21 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
         add(valueLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 100, 130, -1));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void userJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userJButtonActionPerformed
+    private void ManageRestaurantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ManageRestaurantActionPerformed
         // TODO add your handling code here:
+         ManageInfo manageInfo=new ManageInfo(userProcessContainer,account,system);
+        userProcessContainer.add("Manage Restaurents",manageInfo);
+        CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
         
-    }//GEN-LAST:event_userJButtonActionPerformed
+    }//GEN-LAST:event_ManageRestaurantActionPerformed
 
-    private void manageEmployeeJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageEmployeeJButtonActionPerformed
-
-    }//GEN-LAST:event_manageEmployeeJButtonActionPerformed
+    private void ManageMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ManageMenuActionPerformed
+      ManageMenu manageMenu=new ManageMenu(userProcessContainer,account,system);
+        userProcessContainer.add("Manage Restaurents",manageMenu);
+        CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_ManageMenuActionPerformed
 
     private void manageOrdersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageOrdersActionPerformed
      ManageOrders manageOrder=new ManageOrders(userProcessContainer,account,system);
@@ -103,11 +116,11 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton ManageMenu;
+    private javax.swing.JButton ManageRestaurant;
     private javax.swing.JLabel enterpriseLabel;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JButton manageEmployeeJButton;
     private javax.swing.JButton manageOrders;
-    private javax.swing.JButton userJButton;
     private javax.swing.JLabel valueLabel;
     // End of variables declaration//GEN-END:variables
     

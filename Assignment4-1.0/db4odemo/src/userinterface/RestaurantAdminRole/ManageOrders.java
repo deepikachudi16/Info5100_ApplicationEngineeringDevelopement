@@ -6,6 +6,7 @@
 package userinterface.RestaurantAdminRole;
 
 import Business.EcoSystem;
+import Business.Order.Order;
 import Business.Restaurant.Restaurant;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
@@ -25,7 +26,7 @@ public class ManageOrders extends javax.swing.JPanel {
     EcoSystem system;
     JPanel userProcessContainer;
     UserAccount account;
-    public ManageOrders(JPanel userProcessContainer,UserAccount account, EcoSystem system) {
+     public ManageOrders(JPanel userProcessContainer,UserAccount account, EcoSystem system) {
         initComponents();
         this.account=account;
         this.system=system;

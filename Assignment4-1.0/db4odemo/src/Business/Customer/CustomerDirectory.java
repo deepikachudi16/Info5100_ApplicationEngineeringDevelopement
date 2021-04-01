@@ -5,18 +5,48 @@
  */
 package Business.Customer;
 
+import Business.Order.Order;
+import Business.Restaurant.Dishes;
+import java.util.ArrayList;
+
 /**
  *
- * @author harold
+ * @author Deepika Reddy
  */
 public class CustomerDirectory {
-
-    public Customer createCustomer(String uname) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    private ArrayList<Customer> custList;
+   
+    private Customer customer;
+    public ArrayList<Customer> getCustList() {
+        return custList;
     }
-
-    public void deleteCustomer(String username) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    
+    
+    
+    public void setCustList(ArrayList<Customer> custList) {
+        this.custList = custList;
+    }
+    
+    
+    
+    public CustomerDirectory(){
+        this.custList=new ArrayList<Customer>();
+    }
+    
+    
+    
+    public Customer createCustomer(String uName){
+        customer= new Customer(uName);
+        custList.add(customer);
+        return customer;
+    }
+    
+    public void deleteCustomer(String username){
+        for(int i=0;i<custList.size();i++){
+            if(custList.get(i).getUserName().equals(username)){
+                custList.remove(i);
+            }
+        }
     }
     
 }
