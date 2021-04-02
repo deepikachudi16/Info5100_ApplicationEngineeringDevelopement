@@ -45,11 +45,10 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         jSplitPane = new javax.swing.JSplitPane();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        lblSelectedNode = new javax.swing.JLabel();
-        ManageCxbtn = new javax.swing.JButton();
-        ManageResbtn = new javax.swing.JButton();
         ManageDeliverybtn = new javax.swing.JButton();
+        ManageResbtn = new javax.swing.JButton();
+        ManageCxbtn = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 204, 204));
         setForeground(new java.awt.Color(255, 204, 204));
@@ -61,7 +60,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 119, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -70,14 +69,12 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
 
         jSplitPane.setLeftComponent(jPanel1);
 
-        jLabel1.setText("Selected Node:");
+        jPanel2.setBackground(new java.awt.Color(153, 153, 153));
 
-        lblSelectedNode.setText("<View_selected_node>");
-
-        ManageCxbtn.setText("Manage All Customers");
-        ManageCxbtn.addActionListener(new java.awt.event.ActionListener() {
+        ManageDeliverybtn.setText("Manage Deliveryman");
+        ManageDeliverybtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ManageCxbtnActionPerformed(evt);
+                ManageDeliverybtnActionPerformed(evt);
             }
         });
 
@@ -88,42 +85,44 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
-        ManageDeliverybtn.setText("Manage Deliveryman");
-        ManageDeliverybtn.addActionListener(new java.awt.event.ActionListener() {
+        ManageCxbtn.setText("Manage All Customers");
+        ManageCxbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ManageDeliverybtnActionPerformed(evt);
+                ManageCxbtnActionPerformed(evt);
             }
         });
+
+        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Deepika Reddy\\Desktop\\rrr.png")); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
+                .addGap(117, 117, 117)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ManageDeliverybtn)
-                    .addComponent(ManageCxbtn)
-                    .addComponent(lblSelectedNode)
-                    .addComponent(ManageResbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(237, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(ManageCxbtn)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 140, Short.MAX_VALUE)
+                        .addComponent(jLabel2))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(ManageDeliverybtn)
+                            .addComponent(ManageResbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(lblSelectedNode))
-                .addGap(54, 54, 54)
-                .addComponent(ManageCxbtn)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel2)
+                    .addComponent(ManageCxbtn))
+                .addGap(18, 18, 18)
                 .addComponent(ManageResbtn)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(ManageDeliverybtn)
-                .addContainerGap(211, Short.MAX_VALUE))
+                .addContainerGap(213, Short.MAX_VALUE))
         );
 
         jSplitPane.setRightComponent(jPanel2);
@@ -131,19 +130,19 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         add(jSplitPane, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void ManageDeliverybtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ManageDeliverybtnActionPerformed
-        ManageDeliveryMan manageEnterpriseJPanel=new ManageDeliveryMan(userProcessContainer, ecosystem);
-        userProcessContainer.add("Manage DeliveryMan",manageEnterpriseJPanel);
-        CardLayout layout=(CardLayout)userProcessContainer.getLayout();
-        layout.next(userProcessContainer);
-    }//GEN-LAST:event_ManageDeliverybtnActionPerformed
-
     private void ManageResbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ManageResbtnActionPerformed
         ManageRestaurants manageResPanel=new ManageRestaurants(userProcessContainer, ecosystem);
         userProcessContainer.add("Manage Restaurents",manageResPanel);
         CardLayout layout=(CardLayout)userProcessContainer.getLayout();
         layout.next(userProcessContainer);
     }//GEN-LAST:event_ManageResbtnActionPerformed
+
+    private void ManageDeliverybtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ManageDeliverybtnActionPerformed
+        ManageDeliveryMan manageEnterpriseJPanel=new ManageDeliveryMan(userProcessContainer, ecosystem);
+        userProcessContainer.add("Manage DeliveryMan",manageEnterpriseJPanel);
+        CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_ManageDeliverybtnActionPerformed
 
     private void ManageCxbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ManageCxbtnActionPerformed
         ManageCustomers manageEnterpriseJPanel=new ManageCustomers(userProcessContainer, ecosystem);
@@ -157,10 +156,9 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JButton ManageCxbtn;
     private javax.swing.JButton ManageDeliverybtn;
     private javax.swing.JButton ManageResbtn;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSplitPane jSplitPane;
-    private javax.swing.JLabel lblSelectedNode;
     // End of variables declaration//GEN-END:variables
 }

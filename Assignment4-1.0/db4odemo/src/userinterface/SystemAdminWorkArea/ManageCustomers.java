@@ -62,9 +62,8 @@ public class ManageCustomers extends javax.swing.JPanel {
         backJButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        ContactField = new javax.swing.JTextField();
-        AddressFiels = new javax.swing.JTextField();
+
+        setBackground(new java.awt.Color(153, 153, 153));
 
         jLabel4.setText("Password");
 
@@ -74,7 +73,6 @@ public class ManageCustomers extends javax.swing.JPanel {
             }
         });
 
-        updateBtn.setForeground(new java.awt.Color(153, 0, 153));
         updateBtn.setText("Update");
         updateBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -82,7 +80,6 @@ public class ManageCustomers extends javax.swing.JPanel {
             }
         });
 
-        deleteBtn.setForeground(new java.awt.Color(153, 0, 153));
         deleteBtn.setText("Delete");
         deleteBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -92,20 +89,20 @@ public class ManageCustomers extends javax.swing.JPanel {
 
         networkJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Name", "User Name", "Password", "Contact number", "Address"
+                "Name", "User Name", "Password"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.Object.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, true, true, false
+                false, false, true
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -118,7 +115,6 @@ public class ManageCustomers extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(networkJTable);
 
-        ConfirmBtn.setForeground(new java.awt.Color(153, 0, 153));
         ConfirmBtn.setText("Confirm Update");
         ConfirmBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -130,7 +126,6 @@ public class ManageCustomers extends javax.swing.JPanel {
 
         jLabel3.setText("Name");
 
-        submitJButton.setForeground(new java.awt.Color(153, 0, 51));
         submitJButton.setText("Submit");
         submitJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -138,8 +133,7 @@ public class ManageCustomers extends javax.swing.JPanel {
             }
         });
 
-        backJButton.setForeground(new java.awt.Color(153, 0, 51));
-        backJButton.setText("<< Back");
+        backJButton.setText("Back");
         backJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backJButtonActionPerformed(evt);
@@ -149,98 +143,95 @@ public class ManageCustomers extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setText("Customer Details");
 
-        jLabel2.setText("Contact number");
-
-        jLabel6.setText("Address");
+        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Deepika Reddy\\Desktop\\rrr.png")); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(45, 45, 45)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 506, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 334, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(backJButton)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel6)
-                        .addGap(486, 486, 486)
-                        .addComponent(submitJButton))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(86, 86, 86)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(nameJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(160, 160, 160)
+                                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jLabel4)
+                                            .addComponent(jLabel5))
+                                        .addGap(118, 118, 118)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(uNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(PasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel2))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(246, 246, 246)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(32, 32, 32)
+                                .addComponent(updateBtn)
+                                .addGap(101, 101, 101)
+                                .addComponent(deleteBtn)
+                                .addGap(151, 151, 151)
+                                .addComponent(ConfirmBtn))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(99, 99, 99)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(updateBtn)
-                                        .addGap(78, 78, 78)
-                                        .addComponent(deleteBtn)
-                                        .addGap(60, 60, 60)
-                                        .addComponent(ConfirmBtn))
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel5)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel2)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(ContactField)
-                                            .addComponent(AddressFiels, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)))))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(109, 109, 109)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 506, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(211, 211, 211)
+                                .addComponent(submitJButton)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(110, 110, 110)
-                .addComponent(jLabel3)
-                .addGap(50, 50, 50)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(uNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(nameJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(PasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(backJButton)
+                .addGap(118, 118, 118))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(updateBtn)
-                    .addComponent(deleteBtn)
-                    .addComponent(ConfirmBtn))
-                .addGap(37, 37, 37)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(nameJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(uNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(39, 39, 39)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(PasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(ContactField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(23, 23, 23)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(9, 9, 9)
-                        .addComponent(backJButton))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(submitJButton)
-                        .addComponent(jLabel6)
-                        .addComponent(AddressFiels, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(59, 59, 59))
+                        .addContainerGap()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(39, 39, 39)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(nameJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3)))
+                    .addComponent(jLabel2))
+                .addGap(31, 31, 31)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(uNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(44, 44, 44)
+                        .addComponent(jLabel4))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addComponent(PasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(19, 19, 19)
+                .addComponent(submitJButton)
+                .addGap(34, 34, 34)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(43, 43, 43)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(deleteBtn)
+                    .addComponent(updateBtn)
+                    .addComponent(ConfirmBtn))
+                .addGap(27, 27, 27)
+                .addComponent(backJButton)
+                .addContainerGap(52, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
     private void populateNetworkTable() {
@@ -281,8 +272,8 @@ public class ManageCustomers extends javax.swing.JPanel {
             nameJTextField.setText(user.getName()+"");
             uNameTextField.setText(user.getUsername()+"");
             PasswordField.setText(user.getPassword()+"");
-            ContactField.setText(user.getContact()+ "");
-            AddressFiels.setText(user.getAddress()+ "");
+//            ContactField.setText(user.getContact()+ "");
+//            AddressFiels.setText(user.getAddress()+ "");
             // system.getUserAccountDirectory().deleteUserAccount(user);
 
         }
@@ -324,8 +315,8 @@ public class ManageCustomers extends javax.swing.JPanel {
         String name = nameJTextField.getText();
         String uname=uNameTextField.getText();
         String password=PasswordField.getText();
-        String contact = ContactField.getText();
-        String address= AddressFiels.getText();
+//        String contact = ContactField.getText();
+//        String address= AddressFiels.getText();
 
         try {
             if(name==null || name.isEmpty()){
@@ -383,43 +374,7 @@ public class ManageCustomers extends javax.swing.JPanel {
             return;
         }
         
-        try {
-            if(contact==null || contact.isEmpty()){
-                throw new NullPointerException("Contact number is Empty");
-
-            }else if(contact.length()<5){
-                throw new Exception("Please enter valid Conytact number");
-
-            }
-        } catch(NullPointerException e){
-            JOptionPane.showMessageDialog(null, "Conytact number is Empty");
-
-            return;
-
-        }catch (Exception e){
-            JOptionPane.showMessageDialog(null, " Contact number is invalid");
-
-            return;
-        }
         
-        try {
-            if(address==null || address.isEmpty()){
-                throw new NullPointerException("Address is Empty");
-
-            }else if(address.length()<5){
-                throw new Exception("Please enter valid Address");
-
-            }
-        } catch(NullPointerException e){
-            JOptionPane.showMessageDialog(null, "Address is Empty");
-
-            return;
-
-        }catch (Exception e){
-            JOptionPane.showMessageDialog(null, " Address is invalid");
-
-            return;
-        }
 
         if (system.getUserAccountDirectory().checkIfUsernameIsUnique(uname)==false) {
             JOptionPane.showMessageDialog(null,"  User Name already exists ");
@@ -435,8 +390,8 @@ public class ManageCustomers extends javax.swing.JPanel {
             nameJTextField.setText("");
             uNameTextField.setText("");
             PasswordField.setText("");
-            ContactField.setText("");
-            AddressFiels.setText("");
+//            ContactField.setText("");
+//            AddressFiels.setText("");
         }
     }//GEN-LAST:event_ConfirmBtnActionPerformed
 
@@ -445,8 +400,8 @@ public class ManageCustomers extends javax.swing.JPanel {
         String name = nameJTextField.getText();
         String uname=uNameTextField.getText();
         String password=PasswordField.getText();
-        String contact = ContactField.getText();
-        String address= AddressFiels.getText();
+//        String contact = ContactField.getText();
+//        String address= AddressFiels.getText();
 
 
         try {
@@ -504,42 +459,8 @@ public class ManageCustomers extends javax.swing.JPanel {
 
             return;
         }
-        try {
-            if(contact==null || contact.isEmpty()){
-                throw new NullPointerException("Contact number is Empty");
-
-            }else if(contact.length()<10){
-                throw new Exception("Please enter valid Contact number");
-
-            }
-        } catch(NullPointerException e){
-            JOptionPane.showMessageDialog(null, "Contact number is Empty");
-
-            return;
-
-        }catch (Exception e){
-            JOptionPane.showMessageDialog(null, " Contact number is invalid");
-
-            return;
-        }
-        try {
-            if(address==null || address.isEmpty()){
-                throw new NullPointerException("Address is Empty");
-
-            }else if(address.length()<3){
-                throw new Exception("Please enter valid Address");
-
-            }
-        } catch(NullPointerException e){
-            JOptionPane.showMessageDialog(null, "Address is Empty");
-
-            return;
-
-        }catch (Exception e){
-            JOptionPane.showMessageDialog(null, " Address is invalid");
-
-            return;
-        }
+        
+        
 
 
         if (system.getUserAccountDirectory().checkIfUsernameIsUnique(uname)==false) {
@@ -552,8 +473,8 @@ public class ManageCustomers extends javax.swing.JPanel {
             nameJTextField.setText("");
             uNameTextField.setText("");
             PasswordField.setText("");
-            ContactField.setText("");
-            AddressFiels.setText("");
+//            ContactField.setText("");
+//            AddressFiels.setText("");
         }
     }//GEN-LAST:event_submitJButtonActionPerformed
 
@@ -569,9 +490,7 @@ public class ManageCustomers extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField AddressFiels;
     private javax.swing.JButton ConfirmBtn;
-    private javax.swing.JTextField ContactField;
     private javax.swing.JPasswordField PasswordField;
     private javax.swing.JButton backJButton;
     private javax.swing.JButton deleteBtn;
@@ -580,7 +499,6 @@ public class ManageCustomers extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField nameJTextField;
     private javax.swing.JTable networkJTable;
