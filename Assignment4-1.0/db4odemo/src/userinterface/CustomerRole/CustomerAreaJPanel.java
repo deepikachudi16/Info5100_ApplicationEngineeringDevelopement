@@ -41,7 +41,7 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
         this.system=system;
         valueLabel.setText("Welcome"+account.getName());
         populateTable();
-        populateRequestTable();
+//        populateRequestTable();
         
     }
 
@@ -65,30 +65,29 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
     }
 
     
-      public void populateRequestTable(){
-         DefaultTableModel model = (DefaultTableModel) pastTbl.getModel();
-        
-         model.setRowCount(0);
-         
-       
-          for (Customer cust:system.getCustomerDirectory().getCustList()) {
-           
-            if (cust.getUserName().equals(account.getUsername())) {
-               // System.out.println(restro.getOrderList());
-               for(Order menu:cust.getOrderList()){
-                Object[] row = new Object[4];
-                row[0] = menu;
-                row[1] = menu.getRestaurentName();
-               
-                row[2] = menu.getCost();
-                row[3] = menu.getStatus();
-                model.addRow(row);
-               }
-                
-            }
-    }
-
-    }
+//      public void populateRequestTable(){
+//         DefaultTableModel model = (DefaultTableModel) pastTbl.getModel();
+//        
+//         model.setRowCount(0);
+//        
+//          for (Customer cust:system.getCustomerDirectory().getCustList()) {
+//           
+//            if (cust.getUserName().equals(account.getUsername())) {
+//               // System.out.println(restro.getOrderList());
+//               for(Order menu:cust.getOrderList()){
+//                Object[] row = new Object[4];
+//                row[0] = menu;
+//                row[1] = menu.getRestaurentName();
+//               
+//                row[2] = menu.getCost();
+//                row[3] = menu.getStatus();
+//                model.addRow(row);
+//               }
+//                
+//            }
+//    }
+//
+//    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -104,9 +103,6 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
         OrderFoof = new javax.swing.JButton();
         enterpriseLabel = new javax.swing.JLabel();
         valueLabel = new javax.swing.JLabel();
-        valueLabel2 = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        pastTbl = new javax.swing.JTable();
         boxQuantityCount = new javax.swing.JComboBox();
         lblQuantity = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -160,37 +156,6 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
 
         valueLabel.setText("<value>");
 
-        valueLabel2.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
-        valueLabel2.setText("Your Past Orders");
-
-        pastTbl.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Order ID", "Restaurent Name", "Amount", "Status"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false, true, false
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jScrollPane2.setViewportView(pastTbl);
-
         boxQuantityCount.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50" }));
         boxQuantityCount.setToolTipText("");
 
@@ -205,22 +170,6 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(234, 234, 234)
-                        .addComponent(OrderFoof)
-                        .addGap(51, 51, 51)
-                        .addComponent(lblQuantity)
-                        .addGap(26, 26, 26)
-                        .addComponent(boxQuantityCount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(187, 187, 187)
-                        .addComponent(valueLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(76, 76, 76)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(162, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(21, 21, 21)
                         .addComponent(enterpriseLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -228,8 +177,16 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(85, 85, 85)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 464, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
                 .addComponent(jLabel1))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(234, 234, 234)
+                .addComponent(OrderFoof)
+                .addGap(51, 51, 51)
+                .addComponent(lblQuantity)
+                .addGap(26, 26, 26)
+                .addComponent(boxQuantityCount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(208, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -249,11 +206,7 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
                         .addComponent(lblQuantity)
                         .addComponent(boxQuantityCount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(OrderFoof))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(valueLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(62, Short.MAX_VALUE))
+                .addContainerGap(212, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -286,11 +239,8 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel enterpriseLabel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblQuantity;
-    private javax.swing.JTable pastTbl;
     private javax.swing.JTable restaurentTablee;
     private javax.swing.JLabel valueLabel;
-    private javax.swing.JLabel valueLabel2;
     // End of variables declaration//GEN-END:variables
 }

@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package userinterface.DeliveryManRole;
-
+import Business.Role.DeliverManRole;
 import Business.DeliveryMan.DeliveryMan;
 import Business.EcoSystem;
 import Business.Order.Order;
@@ -45,7 +45,7 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
         model.setRowCount(0);
         
         for(DeliveryMan deliveryMan : business.getDeliveryManDirectory().getDeliveryManList()){
-            if(deliveryMan.getUserName().equals(userAccount.getUsername())){
+            //if(deliveryMan.getUserName().equals(userAccount.getUsername())){
                     
                 for(Order order : deliveryMan.getOrderList()){
                 Object[] row = new Object[6];
@@ -60,7 +60,7 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
                 model.addRow(row);
                     
                 }
-            }
+        //}
             
         }
     }
@@ -119,19 +119,21 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 640, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 20, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(287, 287, 287)
-                .addComponent(processbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(287, 287, 287)
+                        .addComponent(processbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 640, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(87, 87, 87)
+                .addGap(113, 113, 113)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(88, 88, 88)
+                .addGap(62, 62, 62)
                 .addComponent(processbtn)
                 .addContainerGap(127, Short.MAX_VALUE))
         );
@@ -145,16 +147,19 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
             return;
         }
         
-        LabTestWorkRequest request = (LabTestWorkRequest)workRequestJTable.getValueAt(selectedRow, 0);
-     
-        request.setStatus("Processing");
+        Order order = (Order)workRequestJTable.getValueAt(selectedRow, 0); 
         
-        ProcessWorkRequestJPanel processWorkRequestJPanel = new ProcessWorkRequestJPanel(userProcessContainer, request);
+        if(order.getStatus().equals("Delivered")){
+            JOptionPane.showMessageDialog(null," Order Already Delivered","Warning",JOptionPane.WARNING_MESSAGE);
+        }else{
+        
+        
+        ProcessWorkRequestJPanel processWorkRequestJPanel = new ProcessWorkRequestJPanel(userProcessContainer, order,business);
         userProcessContainer.add("processWorkRequestJPanel", processWorkRequestJPanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
     }//GEN-LAST:event_processbtnActionPerformed
-
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane1;

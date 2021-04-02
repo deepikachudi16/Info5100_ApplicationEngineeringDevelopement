@@ -107,7 +107,7 @@ public class ManageOrders extends javax.swing.JPanel {
             }
         });
 
-        viewOrderBtn.setText("readybtn");
+        viewOrderBtn.setText("Ready to Deliver");
         viewOrderBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 viewOrderBtnActionPerformed(evt);
