@@ -6,6 +6,7 @@
 package Business.Restaurant;
 
 import Business.Order.Order;
+import java.awt.Image;
 import java.util.ArrayList;
 
 /**
@@ -14,6 +15,7 @@ import java.util.ArrayList;
  */
 public class Restaurant {
     private String adminUName;
+    private Image picture;
     private ArrayList<Dishes> Menu;
     private ArrayList<Order> orderList;
     int id=101;
@@ -102,6 +104,13 @@ public class Restaurant {
 
     public void setName(String name) {
         this.name = name;
+    }
+    public Image getPicture() {
+        return picture;
+    }
+
+    public void setPicture(Image picture) {
+        this.picture = picture;
     }
     
     @Override

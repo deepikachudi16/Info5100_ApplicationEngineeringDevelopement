@@ -5,6 +5,8 @@
  */
 package Business.Restaurant;
 
+import java.awt.Image;
+
 /**
  *
  * @author Deepika Reddy
@@ -12,6 +14,7 @@ package Business.Restaurant;
 public class Dishes {
     private String name;
     private String price;
+    private Image picture;
     private String description;
 
     public Dishes(String name,String description,String price) {

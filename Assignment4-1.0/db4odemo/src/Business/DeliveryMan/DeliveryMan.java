@@ -7,6 +7,7 @@ package Business.DeliveryMan;
 
 import Business.Order.Order;
 import Business.Restaurant.Dishes;
+import java.awt.Image;
 import java.util.ArrayList;
 
 /**
@@ -16,6 +17,7 @@ import java.util.ArrayList;
 public class DeliveryMan {
      private String Name;
      private String UserName;
+     private Image picture;
      private ArrayList<Order> orderList;
      public void addOrder(String restaurentName, String customerName, String deliverMan, ArrayList<Dishes> Order, String cost, String deliveryAddress) {
         Order order=new Order();
@@ -31,6 +33,7 @@ public class DeliveryMan {
         
     }
 
+     
     public String getUserName() {
         return UserName;
     }
@@ -77,6 +80,13 @@ public class DeliveryMan {
 
     public void setNumber(String number) {
         this.number = number;
+    }
+    public Image getPicture() {
+        return picture;
+    }
+
+    public void setPicture(Image picture) {
+        this.picture = picture;
     }
     @Override
     public String toString() {

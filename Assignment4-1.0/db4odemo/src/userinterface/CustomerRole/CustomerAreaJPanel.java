@@ -65,29 +65,29 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
     }
 
     
-//      public void populateRequestTable(){
-//         DefaultTableModel model = (DefaultTableModel) pastTbl.getModel();
-//        
-//         model.setRowCount(0);
-//        
-//          for (Customer cust:system.getCustomerDirectory().getCustList()) {
-//           
-//            if (cust.getUserName().equals(account.getUsername())) {
-//               // System.out.println(restro.getOrderList());
-//               for(Order menu:cust.getOrderList()){
-//                Object[] row = new Object[4];
-//                row[0] = menu;
-//                row[1] = menu.getRestaurentName();
-//               
-//                row[2] = menu.getCost();
-//                row[3] = menu.getStatus();
-//                model.addRow(row);
-//               }
-//                
-//            }
-//    }
-//
-//    }
+      public void populateRequestTable(){
+         DefaultTableModel model = (DefaultTableModel) restaurentTablee.getModel();
+        
+         model.setRowCount(0);
+        
+          for (Customer cust:system.getCustomerDirectory().getCustList()) {
+           
+            if (cust.getUserName().equals(account.getUsername())) {
+               // System.out.println(restro.getOrderList());
+               for(Order menu:cust.getOrderList()){
+                Object[] row = new Object[4];
+                row[0] = menu;
+                row[1] = menu.getRestaurentName();
+               
+                row[2] = menu.getCost();
+                row[3] = menu.getStatus();
+                model.addRow(row);
+               }
+                
+            }
+    }
+
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -109,6 +109,7 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(153, 153, 153));
 
+        restaurentTablee.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         restaurentTablee.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -136,6 +137,7 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        restaurentTablee.setSelectionForeground(new java.awt.Color(204, 204, 204));
         jScrollPane1.setViewportView(restaurentTablee);
         if (restaurentTablee.getColumnModel().getColumnCount() > 0) {
             restaurentTablee.getColumnModel().getColumn(0).setResizable(false);
@@ -177,8 +179,9 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(85, 85, 85)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 464, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
-                .addComponent(jLabel1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(234, 234, 234)
                 .addComponent(OrderFoof)
@@ -186,7 +189,7 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
                 .addComponent(lblQuantity)
                 .addGap(26, 26, 26)
                 .addComponent(boxQuantityCount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(208, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -199,7 +202,9 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
                             .addComponent(valueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(25, 25, 25)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel1)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
